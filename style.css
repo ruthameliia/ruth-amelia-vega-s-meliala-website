@@ -1,0 +1,308 @@
+:root {
+  --primary: #ffe8b2;
+  --bg: #ffb6fe;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: #f8c0ea;
+  min-height: 40000px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: rgba(237, 214, 255, 0.8); /* Transparansi navbar */
+  border-bottom: 1px solid #cc2b2b;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Menambahkan shadow untuk navbar */
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e18784;
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: #d1389e;
+}
+
+.navbar .navbar-nav a {
+  color: #cc2b2b;
+  display: inline-block;
+  font-size: 0.9rem;
+  margin: 0 1rem;
+  position: relative;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hero section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("img/sawah.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgb(245, 185, 213) 3%,
+    rgba(222, 153, 254, 0) 25%
+  );
+}
+
+.hero .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+}
+
+.hero .content h1 {
+  font-size: 4rem;
+  color: #dd6565;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  line-height: 1.2;
+}
+
+.hero .content p {
+  font-size: 1.6rem;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+  font-weight: 100;
+  color: #ffffff;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+.hero .content .cta {
+  margin-top: 1.5rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  color: #d33636;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero .content .cta:hover {
+  background-color: #ffde8a;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* About, Skills, and Education sections */
+.about,
+.skills,
+.education,
+.experience,
+.work,
+.contact {
+  padding: 10rem 7% 1.4rem;
+}
+
+.about h2,
+.skills h2,
+.education h2,
+.experience h2,
+.work h2,
+.contact {
+  font-size: 2.5rem;
+  color: #cc2b2b;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about p,
+.skills p,
+.education p,
+.experience p,
+.work p,
+.contact p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about .row,
+.skills .content,
+.education .row,
+.work .row {
+  display: flex;
+  flex-wrap: wrap; /* Agar lebih responsif */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about .row .about-img,
+.education .row .education-img {
+  flex: 1 1 35%; /* Mengatur lebar agar lebih responsif */
+  padding: 0 1rem;
+}
+
+.about .row .about-img img,
+.education .row .education-img img {
+  width: 100%;
+  max-width: 300px; /* Membatasi lebar maksimum gambar */
+  border-radius: 10px; /* Menambahkan border-radius agar gambar terlihat lebih smooth */
+  object-fit: cover; /* Memastikan gambar tetap proporsional */
+}
+
+.about .row .content,
+.skills .content,
+.education .content {
+  flex: 1 1 55%; /* Menyusutkan lebar konten agar seimbang dengan gambar */
+  padding: 0 1rem;
+  text-align: justify; /* Agar teks lebih rapi */
+}
+
+@media (max-width: 768px) {
+  .about .row,
+  .skills .content,
+  .education .row {
+    flex-direction: column; /* Agar layout menjadi kolom pada layar kecil */
+  }
+
+  .about .row .about-img,
+  .about .row .content,
+  .skills .content,
+  .education .row .education-img,
+  .education .content {
+    flex: 1 1 100%; /* Lebar penuh pada layar kecil */
+    margin-bottom: 2rem; /* Tambah jarak antar elemen */
+  }
+}
+
+.about h3 {
+  font-size: 2rem;
+  color: #934f4f;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+/* contact section */
+.contact .row {
+  display: flex;
+  margin-top: 2rem;
+  background-color: #222;
+}
+
+.contact .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.contact .row form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: var(--bg);
+  border: 1px solid #eee;
+  padding-left: 2rem;
+}
+
+.contact .row form .input-group input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background: none;
+}
+
+.contact .row form .btn {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #c11d1d;
+  background-color: var(--primary);
+  cursor: pointer;
+}
+/* footer */
+footer {
+  background-color: #934f4f;
+  text-align: center;
+  padding: 1rem 0.3rem;
+  margin-top: 3rem;
+}
+
+footer .socials {
+  padding: 1rem 0;
+}
+
+footer .socials a {
+  margin: 1rem;
+}
+
+footer .social a:hover footer .links a:hover {
+  color: var(--bg);
+}
+
+footer links {
+  margin-bottom: 1.4rem;
+}
+footer .links a {
+  color: #fff;
+  padding: 0.7rem 2rem;
+}
+footer .credit {
+  font-size: 0.8rem;
+}
+
+footer .credit a {
+  color: var(--bg);
+  font-weight: 700;
+}
